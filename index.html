@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from www.gmetrix.net/browsersms4.0//ProjectInstructions46V2.aspx?tstKey=24904&lng=en-US by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Oct 2018 20:00:56 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>IIG Training</title>
+    <link rel="stylesheet" href="Styles/style.css" />
+    <link rel="stylesheet" href='Styles/ProjectV2.css' />
+
+
+
+    <script src="Scripts/jquery-2.1.1.min.js"></script>
+
+</head>
+
+<body>
+    <form method="post"
+        action="http://www.gmetrix.net/browsersms4.0//ProjectInstructions46V2.aspx?tstKey=24904&amp;lng=en-US"
+        id="frmQuestion">
+
+
+        <div class="aspNetHidden">
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="9A7FEFD0" />
+        </div>
+
+        <script type="text/javascript">
+
+
+
+            var currentScrollLocation;
+            function ToggleNavigation(elem, ToShow) {
+                if (ToShow == "divSample" || ToShow == "divVideo") {
+                    currentScrollLocation = $(document).scrollTop();
+                    $(document).scrollTop(0);
+                }
+                $(".NavigationSpan").removeClass("tabselected");
+                $(elem).addClass("tabselected");
+                $(".ContentDiv").hide();
+                $("#" + ToShow).show();
+                if (ToShow == "divInstructions") {
+                    $(document).scrollTop(currentScrollLocation);
+                }
+            }
+            $(document).ready(function () {
+
+
+
+
+                try { // hide all programming words
+
+
+                    $('p').filter(':contains("|EndRedWords|")').hide();
+                    $('[color="#ff0000"]').hide();
+
+
+                    $('font').removeAttr('color');
+
+                    $('strong').removeAttr('style');
+                    $('div[dir="rtl"]').addClass('displayInline');
+
+
+                } catch (e) { }
+                try {
+                    $(".HelpButton").each(function () {
+                        $(this).css("display", "inline"); //Hides lightbulb image if test is in testing mode.
+                        $(this).attr("src", "Images/Tip_02.png");
+                        $(this).attr("width", "16px");
+                        $(this).attr("height", "16px");
+                        $(this).attr("alt", "help");
+                        $(this).attr("title", "Click to toggle help");
+
+                        var currentclick = $(this).attr("onclick");
+                        var newclick = currentclick.replace(")", ", this.parentElement.parentElement)");
+                        $(this).attr("onclick", newclick);
+
+                    });
+                } catch (e) { }
+
+
+
+                GetSavedValues();
+                $.each(CheckedValues, function (index, value) {
+                    $('#' + value).prop('checked', true);
+                    $(".Nav" + value).addClass("navselected");
+
+
+
+                });
+            });
+
+            var CheckedValues = [];
+            function GetSavedValues() {
+                //CheckedValues = ["181464","181480"];
+                try {
+                    //stringy = stringy.replace(/\s/g, '');
+
+                    CheckedValues = projectTestCallbackObject.getSavedValues().replace(/\s/g, '').split(',');
+                } catch (e) { }
+            }
+            function SetSavedValues() {
+                //alert(CheckedValues.join(","));
+                try {
+                    projectTestCallbackObject.setSavedValues(CheckedValues.join(","));
+                } catch (e) { }
+            }
+
+            function handleClick(cb) {
+
+
+                if (cb.checked == true) {
+                    $(".Nav" + cb.id).addClass("navselected");
+                    var i = CheckedValues.indexOf(cb.id);
+                    if (i != -1) {
+                        CheckedValues.splice(i, 1);
+                    } // remove first to handle duplicates
+                    CheckedValues.push(cb.id);
+                }
+                else {
+                    $(".Nav" + cb.id).removeClass("navselected");
+                    var ix = CheckedValues.indexOf(cb.id);
+                    if (ix != -1) {
+                        CheckedValues.splice(ix, 1);
+                    }
+                }
+                SetSavedValues();
+            }
+
+
+            function ToggleElement(id, ParentLocation) {
+                $(ParentLocation).find(".help" + id).toggle();
+            }
+
+
+            function LaunchInWindow(uri) {
+                projectTestCallbackObject.launchInWindow(uri);
+            }
+
+        </script>
+        <div class="NavigationContainer">
+
+
+            <div class='NavigationItem' style="text-align: center; font-weight: bold">
+                <a href='#01'>
+                    Project3
+                </a>
+            </div>
+
+            <div class='NavigationItem Navtask1'>
+                <a href='#task1'>
+                    1.
+                    <span><span>Task 1</span></span>
+                </a>
+            </div>
+
+            <div class='NavigationItem Navtask2'>
+                <a href='#task2'>
+                    2.
+                    <span><span>Task 2</span></span>
+                </a>
+            </div>
+
+            <div class='NavigationItem Navtask3'>
+                <a href='#task3'>
+                    3.
+                    <span><span>Task 3</span></span>
+                </a>
+            </div>
+
+            <div class='NavigationItem Navtask4'>
+                <a href='#task4'>
+                    4.
+                    <span><span>Task4</span></span>
+                </a>
+            </div>
+
+            <div class='NavigationItem Navtask5'>
+                <a href='#task5'>
+                    5.
+                    <span><span>Task5</span></span>
+                </a>
+            </div>
+
+            <div class='NavigationItem Navtask6'>
+                <a href='#task6'>
+                    6.
+                    <span><span>Task6</span></span>
+                </a>
+            </div>
+
+            <div class='NavigationItem Navtask7'>
+                <a href='#task7'>
+                    7.
+                    <span><span>Task7</span></span>
+                </a>
+            </div>
+
+            <div class='NavigationItem Navtask8'>
+                <a href='#task8'>
+                    8.
+                    <span><span>Task8</span></span>
+                </a>
+            </div>
+      
+
+            <div class='NavigationItem Navtask1'>
+                <a href='#task9'>
+                    9.
+                    <span><span>Task 9</span></span>
+                </a>
+            </div>
+
+            <div class='NavigationItem Navtask2'>
+                <a href='#task10'>
+                    10.
+                    <span><span>Task 10</span></span>
+                </a>
+            </div>
+
+            <div class='NavigationItem Navtask3'>
+                <a href='#task11'>
+                    11.
+                    <span><span>Task 11</span></span>
+                </a>
+            </div>
+
+            <div class='NavigationItem Navtask4'>
+                <a href='#task12'>
+                    12.
+                    <span><span>Task12</span></span>
+                </a>
+            </div>
+
+
+
+        </div>
+        <!-- Nội dung-->
+        <div class="instructionContainer">
+
+            <div id="divInstructions" class="ContentDiv">
+                <div id="GmxTable" style="padding-top: 30px;">
+
+
+
+
+                    <br style="clear: both;" />
+
+                    <div class="container">
+                        <a name='01' class="Anchor">&nbsp;</a>
+                        
+                        <!-- Bắt đầu 1 câu -->
+                        <h2>Project 3 </h2>
+                        <a href="Excel - Project 03.xlsx">Tải file tại đây</a>
+                        
+                        <br style="clear: both" />
+
+                        <a name='task1' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task1' onclick='handleClick(this);' />
+                            1. </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Convert Table to Range</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>Trên trang tính “Comparison”, chuyển (convert) bảng thành một phạm vi (range) ô.
+                                            Giữ lại định dạng.</p>
+                                    </span></div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task2' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task2' onclick='handleClick(this);' />
+                            2. </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Convert Range to Table</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>Trên trang tính “Region”, chuyển các ô A1:H11 thành bảng có tiêu đề (header).
+                                            Áp dụng kiểu Green, Table Style Light 14.</p>
+                                    </span></div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task3' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task3' onclick='handleClick(this);' />
+                            3. </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Delete Row from Table</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>Trên trang tính “Summary”, xóa hàng chứa dữ liệu “Mitsubishi	3000 GT	Sport	1995
+                                            ” khỏi
+                                            bảng. Không thay đổi bất kỳ nội dung nào bên ngoài bảng này.</p>
+                                    </span></div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        
+
+
+<a name='task4' class="Anchor">&nbsp;</a><br />
+<span class="CBOffset">
+    <input type="checkbox" id='task4' onclick='handleClick(this);' />
+    4. </span>
+<div class="Instruction">
+    <div class="Title"><span>Multi-Level Sort</span></div>
+    <div class="Overview">
+        <div class="OverviewItem"><span>
+                <p>Trên trang tính “Region 1”, hãy thực hiện một lệnh sắp xếp đa mức. Sắp xếp (sort) dữ liệu bảng theo
+                    “Product” (A đến Z) và sau đó theo “Total Sales” (Lớn đến nhỏ (Largest to Smallest)).</p>
+            </span></div>
+    </div>
+</div>
+<br style="clear: both" />
+
+
+<a name='task5' class="Anchor">&nbsp;</a><br />
+<span class="CBOffset">
+    <input type="checkbox" id='task5' onclick='handleClick(this);' />
+    5. </span>
+<div class="Instruction">
+    <div class="Title"><span>Name Table</span></div>
+    <div class="Overview">
+        <div class="OverviewItem"><span>
+                <p>Trên trang tính “Tasks”, đặt tên cho bảng là “Tasks”.</p>
+            </span></div>
+    </div>
+</div>
+<br style="clear: both" />
+
+<a name='task6' class="Anchor">&nbsp;</a><br />
+<span class="CBOffset">
+    <input type="checkbox" id='task6' onclick='handleClick(this);' />
+    6. </span>
+<div class="Instruction">
+    <div class="Title"><span>Apply Table Style Options</span></div>
+    <div class="Overview">
+        <div class="OverviewItem"><span>
+                <p>Trên trang tính “Tasks”, hãy đặt cấu hình tùy chọn kiểu bảng (table style options) để tự động tô nền
+                    cho các hàng trong bảng theo kiểu xen kẽ.</p>
+            </span></div>
+    </div>
+</div>
+<br style="clear: both" />
+
+<a name='task7' class="Anchor">&nbsp;</a><br />
+<span class="CBOffset">
+    <input type="checkbox" id='task7' onclick='handleClick(this);' />
+    7. </span>
+<div class="Instruction">
+    <div class="Title"><span>Change Horizontal Alignment</span></div>
+    <div class="Overview">
+        <div class="OverviewItem"><span>
+                <p>Trên trang tính “New Policies”, đổi kiểu căn chỉnh ngang (horizontal alignment) của tên “Agent” thành
+                    Left (Indent). Đặt thụt lề (indent) thành 1.</p>
+            </span></div>
+    </div>
+</div>
+<br style="clear: both" />
+
+
+
+<a name='task8' class="Anchor">&nbsp;</a><br />
+<span class="CBOffset">
+    <input type="checkbox" id='task8' onclick='handleClick(this);' />
+    8. </span>
+<div class="Instruction">
+    <div class="Title"><span>Add Total Row</span></div>
+    <div class="Overview">
+        <div class="OverviewItem"><span>
+                <p>Trên trang tính “New Policies”, thêm Hàng tổng cộng (Total Row) vào bảng. Đặt cấu hình để Hàng tổng
+                    cộng hiển thị số hợp đồng mới cho mỗi tháng và cho tổng 6 tháng.</p>
+            </span></div>
+    </div>
+</div>
+<br style="clear: both" />
+
+
+<a name='task9' class="Anchor">&nbsp;</a><br />
+<span class="CBOffset">
+    <input type="checkbox" id='task9' onclick='handleClick(this);' />
+    9. </span>
+<div class="Instruction">
+    <div class="Title"><span>Multi-Level Sort</span></div>
+    <div class="Overview">
+        <div class="OverviewItem"><span>
+                <p>Trên trang tính “Projects”, hãy thực hiện một lệnh sắp xếp đa mức. Sắp xếp (sort) dữ liệu bảng
+                    theo “Make” (A đến Z (A to Z)) và sau đó theo “Model” (A đến Z).</p>
+            </span></div>
+    </div>
+</div>
+<br style="clear: both" />
+
+
+
+<a name='task10' class="Anchor">&nbsp;</a><br />
+<span class="CBOffset">
+    <input type="checkbox" id='task10' onclick='handleClick(this);' />
+    10. </span>
+<div class="Instruction">
+    <div class="Title"><span>Filter Data</span></div>
+    <div class="Overview">
+        <div class="OverviewItem"><span>
+                <p>Trên trang tính “Projects”, hãy lọc (filter) dữ liệu của bảng để chỉ hiển thị các xe đã bán có giá lớn hơn "$5,000".</p>
+            </span></div>
+    </div>
+</div>
+<br style="clear: both" />
+
+<a name='task11' class="Anchor">&nbsp;</a><br />
+<span class="CBOffset">
+    <input type="checkbox" id='task11' onclick='handleClick(this);' />
+    11. </span>
+<div class="Instruction">
+    <div class="Title"><span>Filter Data</span></div>
+    <div class="Overview">
+        <div class="OverviewItem"><span>
+                <p>Trên trang tính “Tasks”, hãy lọc (filter) dữ liệu của bảng để chỉ hiển thị các xe đã bán có màu trắng “White”.</p>
+            </span></div>
+    </div>
+</div>
+<br style="clear: both" />
+
+<a name='task12' class="Anchor">&nbsp;</a><br />
+<span class="CBOffset">
+    <input type="checkbox" id='task12' onclick='handleClick(this);' />
+    12. </span>
+<div class="Instruction">
+    <div class="Title"><span>Apply Table Style</span></div>
+    <div class="Overview">
+        <div class="OverviewItem"><span>
+                <p>Trên trang tính “Summary”, hãy áp dụng kiểu White, Table Style Medium 1 cho bảng.</p>
+            </span></div>
+    </div>
+</div>
+<br style="clear: both" />
+
+
+
+
+
+<!-- kết thúc 1 câu-->
+
+<br style="clear: both" />
+
+</div>
+
+<br />
+<div class="TestName" style="text-align: center">
+    End of Instructions</div>
+<br />
+</div>
+</div>
+
+
+
+
+</div>
+
+</form>
+</body>
+
+<!-- Mirrored from www.gmetrix.net/browsersms4.0//ProjectInstructions46V2.aspx?tstKey=24904&lng=en-US by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Oct 2018 20:01:29 GMT -->
+
+</html>
